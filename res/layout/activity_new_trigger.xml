@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:background="@color/theme_primary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_content_margin"
+            android:text="@string/title"
+            android:textColor="@color/theme_accent"
+            android:textSize="@dimen/font_size_body"/>
+        <EditText
+            android:id="@+id/txtTriggerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_content_margin_edittext"
+            android:hint="@string/hint_new_trigger"
+            android:textColor="@color/theme_accent"
+            android:textColorHint="@color/theme_accent"
+            android:textColorHighlight="@color/theme_accent_light"
+            android:textSize="@dimen/font_size_title"
+            style="@style/MaterialEditText"/>
+        <RadioGroup
+            android:id="@+id/triggerTypeGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_content_margin"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdoLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/radiobutton_location"
+                android:textColor="@color/theme_accent"
+                android:textColorHighlight="@color/theme_accent_light"
+                android:textColorHint="@color/theme_accent_light"
+                android:textColorLink="@color/theme_accent" />
+
+            <RadioButton
+                android:id="@+id/rdoTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiobutton_time"/>
+        </RadioGroup>
+    </LinearLayout>
+    
+</LinearLayout>
