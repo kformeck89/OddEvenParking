@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.kformeck.oddevenparking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -30,7 +31,6 @@
             android:textColorHighlight="@color/theme_accent_light"
             android:textSize="@dimen/font_size_title"
             style="@style/MaterialEditText"/>
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,23 +38,32 @@
         android:orientation="horizontal"
         android:background="@android:color/white"
         android:elevation="2dp">
-        <ImageButton
+        <com.kformeck.widgets.CompoundImageButton
             android:id="@+id/btnLocation"
             android:layout_width="@dimen/trigger_type_button_size"
             android:layout_height="@dimen/trigger_type_button_size"
             android:layout_weight="1"
             android:contentDescription="@string/location_button_desc"
             android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/ic_location"/>
-        <ImageButton
+            app:background_color="@color/theme_primary"
+            app:drawable_unselected="@drawable/ic_location"
+            app:ripple_color="@color/theme_accent"/>
+        <com.kformeck.widgets.CompoundImageButton
             android:id="@+id/btnTime"
             android:layout_width="@dimen/trigger_type_button_size"
             android:layout_height="@dimen/trigger_type_button_size"
             android:layout_weight="1"
             android:contentDescription="@string/time_button_desc"
             android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/ic_clock"/>
+            app:background_color="@color/theme_primary"
+            app:drawable_unselected="@drawable/ic_clock"
+            app:ripple_color="@color/theme_accent"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/thing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="thing"/>
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"

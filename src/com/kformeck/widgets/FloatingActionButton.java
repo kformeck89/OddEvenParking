@@ -32,9 +32,7 @@ public class FloatingActionButton extends View {
 	private boolean hidden;
 	
 	public FloatingActionButton(Context context) { this(context, null); }
-	public FloatingActionButton(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+	public FloatingActionButton(Context context, AttributeSet attrs) { this(context, attrs, 0); }
 	public FloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		
@@ -113,8 +111,10 @@ public class FloatingActionButton extends View {
 		}
 		buttonPaint.setColor(tempColor);
 		invalidate();
-		return performClick();
+		return super.onTouchEvent(event);
 	}
+	@Override
+	public boolean performClick() { return super.performClick(); }
 	private int darkenColor(int color) {
 		float[] hsv = new float[3];
 		Color.colorToHSV(color, hsv);

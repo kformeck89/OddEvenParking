@@ -17,6 +17,15 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+        public static final int background_color=0x7f010008;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
         public static final int color=0x7f010001;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -26,6 +35,31 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int drawable=0x7f010000;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int drawable_selected=0x7f010006;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int drawable_unselected=0x7f010007;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ripple_color=0x7f010009;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -98,11 +132,12 @@ containing a value of this type.
         public static final int ripple_primary=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0005;
+        public static final int action_settings=0x7f0a0006;
         public static final int btnAddTrigger=0x7f0a0000;
         public static final int btnLocation=0x7f0a0002;
         public static final int btnTime=0x7f0a0003;
-        public static final int content=0x7f0a0004;
+        public static final int content=0x7f0a0005;
+        public static final int thing=0x7f0a0004;
         public static final int txtTriggerTitle=0x7f0a0001;
     }
     public static final class layout {
@@ -156,6 +191,83 @@ containing a value of this type.
         public static final int explode=0x7f040000;
     }
     public static final class styleable {
+        /** Attributes that can be used with a CompoundImageButton.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CompoundImageButton_background_color com.kformeck.oddevenparking:background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CompoundImageButton_drawable_selected com.kformeck.oddevenparking:drawable_selected}</code></td><td></td></tr>
+           <tr><td><code>{@link #CompoundImageButton_drawable_unselected com.kformeck.oddevenparking:drawable_unselected}</code></td><td></td></tr>
+           <tr><td><code>{@link #CompoundImageButton_ripple_color com.kformeck.oddevenparking:ripple_color}</code></td><td></td></tr>
+           </table>
+           @see #CompoundImageButton_background_color
+           @see #CompoundImageButton_drawable_selected
+           @see #CompoundImageButton_drawable_unselected
+           @see #CompoundImageButton_ripple_color
+         */
+        public static final int[] CompoundImageButton = {
+            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.kformeck.oddevenparking.R.attr#background_color}
+          attribute's value can be found in the {@link #CompoundImageButton} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.kformeck.oddevenparking:background_color
+        */
+        public static final int CompoundImageButton_background_color = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.kformeck.oddevenparking.R.attr#drawable_selected}
+          attribute's value can be found in the {@link #CompoundImageButton} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.kformeck.oddevenparking:drawable_selected
+        */
+        public static final int CompoundImageButton_drawable_selected = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.kformeck.oddevenparking.R.attr#drawable_unselected}
+          attribute's value can be found in the {@link #CompoundImageButton} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.kformeck.oddevenparking:drawable_unselected
+        */
+        public static final int CompoundImageButton_drawable_unselected = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.kformeck.oddevenparking.R.attr#ripple_color}
+          attribute's value can be found in the {@link #CompoundImageButton} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.kformeck.oddevenparking:ripple_color
+        */
+        public static final int CompoundImageButton_ripple_color = 3;
         /** Attributes that can be used with a FloatingActionButton.
            <p>Includes the following attributes:</p>
            <table>

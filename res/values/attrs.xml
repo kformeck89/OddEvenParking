@@ -8,4 +8,10 @@
         <attr name="shadowDy" format="float"/>
         <attr name="shadowColor" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="CompoundImageButton">
+        <attr name="drawable_selected" format="integer"/>
+        <attr name="drawable_unselected" format="integer"/>
+        <attr name="background_color" format="color"/>
+        <attr name="ripple_color" format="color"/>
+    </declare-styleable>
 </resources>
