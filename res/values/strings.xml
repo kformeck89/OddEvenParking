@@ -10,4 +10,7 @@
     <string name="radiobutton_location">Location</string>
 	<string name="radiobutton_time">Time</string>
     
+	<string name="location_button_desc">Location</string>
+	<string name="time_button_desc">Time</string>
+	
 </resources>

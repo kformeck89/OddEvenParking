@@ -7,10 +7,10 @@
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/theme_primary">
+        android:background="@color/theme_primary"
+        android:elevation="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,39 +20,44 @@
             android:textSize="@dimen/font_size_body"/>
         <EditText
             android:id="@+id/txtTriggerTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/horizontal_content_margin_edittext"
+            android:layout_marginRight="@dimen/horizontal_content_margin_edittext"
             android:hint="@string/hint_new_trigger"
-            android:textColor="@color/theme_accent"
-            android:textColorHint="@color/theme_accent"
+            android:textColor="@color/font_color_light"
+            android:textColorHint="@color/theme_primary_light"
             android:textColorHighlight="@color/theme_accent_light"
             android:textSize="@dimen/font_size_title"
             style="@style/MaterialEditText"/>
-        <RadioGroup
-            android:id="@+id/triggerTypeGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/horizontal_content_margin"
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rdoLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/radiobutton_location"
-                android:textColor="@color/theme_accent"
-                android:textColorHighlight="@color/theme_accent_light"
-                android:textColorHint="@color/theme_accent_light"
-                android:textColorLink="@color/theme_accent" />
-
-            <RadioButton
-                android:id="@+id/rdoTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/radiobutton_time"/>
-        </RadioGroup>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:elevation="2dp">
+        <ImageButton
+            android:id="@+id/btnLocation"
+            android:layout_width="@dimen/trigger_type_button_size"
+            android:layout_height="@dimen/trigger_type_button_size"
+            android:layout_weight="1"
+            android:contentDescription="@string/location_button_desc"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_location"/>
+        <ImageButton
+            android:id="@+id/btnTime"
+            android:layout_width="@dimen/trigger_type_button_size"
+            android:layout_height="@dimen/trigger_type_button_size"
+            android:layout_weight="1"
+            android:contentDescription="@string/time_button_desc"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_clock"/>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     
 </LinearLayout>
