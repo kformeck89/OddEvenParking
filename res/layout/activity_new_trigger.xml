@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/horizontal_content_margin_edittext"
             android:layout_marginRight="@dimen/horizontal_content_margin_edittext"
+            android:layout_marginBottom="@dimen/standard_content_margin"
             android:hint="@string/hint_new_trigger"
             android:textColor="@color/font_color_light"
             android:textColorHint="@color/theme_primary_light"
@@ -36,8 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@android:color/white"
-        android:elevation="2dp">
+        android:background="@android:color/transparent">
         <com.kformeck.widgets.CompoundImageButton
             android:id="@+id/btnLocation"
             android:layout_width="@dimen/trigger_type_button_size"
@@ -47,7 +47,7 @@
             android:background="?android:attr/selectableItemBackground"
             app:background_color="@color/theme_primary"
             app:drawable_unselected="@drawable/ic_location"
-            app:ripple_color="@color/theme_accent"/>
+            app:ripple_color="@color/theme_accent_light"/>
         <com.kformeck.widgets.CompoundImageButton
             android:id="@+id/btnTime"
             android:layout_width="@dimen/trigger_type_button_size"
@@ -57,13 +57,12 @@
             android:background="?android:attr/selectableItemBackground"
             app:background_color="@color/theme_primary"
             app:drawable_unselected="@drawable/ic_clock"
-            app:ripple_color="@color/theme_accent"/>
+            app:ripple_color="@color/theme_accent_light"/>
     </LinearLayout>
     <TextView
         android:id="@+id/thing"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="thing"/>
+        android:layout_height="wrap_content"/>
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"

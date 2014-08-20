@@ -13,17 +13,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.CompoundButton;
 
-public class CompoundImageButton extends CompoundButton implements CompoundButton.OnCheckedChangeListener {
+public class CompoundImageButton extends CompoundButton {
+	private Context context;
 	private Paint backgroundBrush;
 	private Bitmap bmpSelected;
 	private Bitmap bmpUnselected;
-	
+
 	public CompoundImageButton(Context context) { this(context, null); }
 	public CompoundImageButton(Context context, AttributeSet attrs) { this(context, attrs, 0); }
 	public CompoundImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
+		this.context = context;
 		
 		backgroundBrush = new Paint();
 		
@@ -52,7 +55,6 @@ public class CompoundImageButton extends CompoundButton implements CompoundButto
 		rippleBackground.setColor(backgroundColor);
 		ripple.setColor(ColorStateList.valueOf(rippleColor));
 		
-		this.setChecked(false);
 		this.setClickable(true);
 		
 		a.recycle();
@@ -61,6 +63,7 @@ public class CompoundImageButton extends CompoundButton implements CompoundButto
 	@Override 
 	public void onDraw(Canvas canvas) {
 		if (bmpUnselected != null) {
+			canvas.drawColor(backgroundBrush.getColor());
 			canvas.drawBitmap(
 					bmpUnselected, 
 					(getWidth() / 2) - (bmpUnselected.getWidth() / 2), 
@@ -69,20 +72,17 @@ public class CompoundImageButton extends CompoundButton implements CompoundButto
 		}
 	}
 	@Override
-	public boolean performClick() { 
-		return super.performClick(); 
+	public boolean onTouchEvent(MotionEvent event) {
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			if (isChecked()) {
+				backgroundBrush.setColor(context.getResources().getColor(R.color.theme_primary));
+			} else {
+				backgroundBrush.setColor(context.getResources().getColor(R.color.theme_primary_light));
+			}
+		}
+		this.performClick();
+		return super.onTouchEvent(event);
 	}
 	@Override
-	public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
-		super.setOnCheckedChangeListener(listener);
-	}
-	@Override
-	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-		buttonView.setChecked(isChecked);
-	}
-	@Override
-	protected void drawableStateChanged() {
-		super.drawableStateChanged();
-		invalidate();
-	}
+	public boolean performClick() { return super.performClick(); }
 }

@@ -113,16 +113,17 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060009;
+        public static final int activity_horizontal_margin=0x7f06000a;
         public static final int fab_margin_bottom=0x7f060001;
         public static final int fab_margin_right=0x7f060002;
-        public static final int font_size_body=0x7f060005;
-        public static final int font_size_subheader=0x7f060006;
-        public static final int font_size_title=0x7f060007;
-        public static final int horizontal_content_margin=0x7f060003;
-        public static final int horizontal_content_margin_edittext=0x7f060004;
+        public static final int font_size_body=0x7f060006;
+        public static final int font_size_subheader=0x7f060007;
+        public static final int font_size_title=0x7f060008;
+        public static final int horizontal_content_margin=0x7f060004;
+        public static final int horizontal_content_margin_edittext=0x7f060005;
         public static final int item_text_left_margin=0x7f060000;
-        public static final int trigger_type_button_size=0x7f060008;
+        public static final int standard_content_margin=0x7f060003;
+        public static final int trigger_type_button_size=0x7f060009;
     }
     public static final class drawable {
         public static final int ic_clock=0x7f020000;

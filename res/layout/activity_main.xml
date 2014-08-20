@@ -8,8 +8,8 @@
     
     <com.kformeck.widgets.FloatingActionButton
         android:id="@+id/btnAddTrigger"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/fab_margin_bottom"
