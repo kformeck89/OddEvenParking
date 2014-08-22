@@ -3,37 +3,66 @@ package com.kformeck.oddevenparking;
 import com.kformeck.widgets.CompoundImageButton;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 public class NewTriggerActivity extends Activity {
+	private TimeSelectionFragment timeSelectionFragment;
+	private LocationSelectionFragment locationSelectionFragment;
 	private CompoundImageButton btnLocation;
 	private CompoundImageButton btnTime;
-	private TextView thing;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_trigger);
-		
-		thing = (TextView)findViewById(R.id.thing);
+
+		timeSelectionFragment = new TimeSelectionFragment();
+		locationSelectionFragment = new LocationSelectionFragment();
+		final FragmentManager fragmentManager = getFragmentManager();
+	
 		btnLocation = (CompoundImageButton)findViewById(R.id.btnLocation);
 		btnLocation.setChecked(false);
 		btnLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				thing.setText("Location Trigger Selected");
+				if (fragmentManager.findFragmentById(android.R.id.content) == null) {
+					fragmentManager.beginTransaction()
+								   .add(
+									    android.R.id.content, 
+										locationSelectionFragment)
+								   .commit();
+				} else {
+					fragmentManager.beginTransaction()
+								   .replace(
+										android.R.id.content,
+										locationSelectionFragment)
+								   .commit();
+				}
 			}
 		});
+		
 		btnTime = (CompoundImageButton)findViewById(R.id.btnTime);
 		btnTime.setChecked(false);
 		btnTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				thing.setText("Time Trigger Selected");
+				if (fragmentManager.findFragmentById(android.R.id.content) == null) {
+					fragmentManager.beginTransaction()
+					        	   .add(
+					        	        android.R.id.content,
+					        	        timeSelectionFragment)
+					        	   .commit();						
+				} else {
+					fragmentManager.beginTransaction()
+								   .replace(
+								        android.R.id.content,
+								        timeSelectionFragment)
+								   .commit();
+				}
 			}
 		});
 	}
