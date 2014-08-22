@@ -1,6 +1,6 @@
 package com.kformeck.oddevenparking;
 
-import com.kformeck.widgets.CompoundImageButton;
+import com.kformeck.widgets.ImageToggleButton;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -12,20 +12,23 @@ import android.widget.CompoundButton;
 public class NewTriggerActivity extends Activity {
 	private TimeSelectionFragment timeSelectionFragment;
 	private LocationSelectionFragment locationSelectionFragment;
-	private CompoundImageButton btnLocation;
-	private CompoundImageButton btnTime;
+	private ImageToggleButton btnLocation;
+	private ImageToggleButton btnTime;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_trigger);
 
+		if (savedInstanceState != null) {
+			return;
+		}
+		
 		timeSelectionFragment = new TimeSelectionFragment();
 		locationSelectionFragment = new LocationSelectionFragment();
 		final FragmentManager fragmentManager = getFragmentManager();
 	
-		btnLocation = (CompoundImageButton)findViewById(R.id.btnLocation);
-		btnLocation.setChecked(false);
+		btnLocation = (ImageToggleButton)findViewById(R.id.btnLocation);
 		btnLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -45,8 +48,7 @@ public class NewTriggerActivity extends Activity {
 			}
 		});
 		
-		btnTime = (CompoundImageButton)findViewById(R.id.btnTime);
-		btnTime.setChecked(false);
+		btnTime = (ImageToggleButton)findViewById(R.id.btnTime);
 		btnTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

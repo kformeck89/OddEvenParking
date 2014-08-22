@@ -33,12 +33,12 @@
             android:textSize="@dimen/font_size_title"
             style="@style/MaterialEditText"/>
     </LinearLayout>
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@android:color/transparent">
-        <com.kformeck.widgets.CompoundImageButton
+        <com.kformeck.widgets.ImageToggleButton
             android:id="@+id/btnLocation"
             android:layout_width="@dimen/trigger_type_button_size"
             android:layout_height="@dimen/trigger_type_button_size"
@@ -48,7 +48,7 @@
             app:background_color="@color/theme_primary"
             app:drawable_unselected="@drawable/ic_location"
             app:ripple_color="@color/theme_accent_light"/>
-        <com.kformeck.widgets.CompoundImageButton
+        <com.kformeck.widgets.ImageToggleButton
             android:id="@+id/btnTime"
             android:layout_width="@dimen/trigger_type_button_size"
             android:layout_height="@dimen/trigger_type_button_size"
@@ -58,7 +58,7 @@
             app:background_color="@color/theme_primary"
             app:drawable_unselected="@drawable/ic_clock"
             app:ripple_color="@color/theme_accent_light"/>
-    </LinearLayout>
+    </RadioGroup>
     <TextView
         android:id="@+id/thing"
         android:layout_width="wrap_content"

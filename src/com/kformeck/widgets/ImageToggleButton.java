@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -14,29 +15,32 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
-public class CompoundImageButton extends CompoundButton {
+public class ImageToggleButton extends ToggleButton {
+	private static final int ALPHA = 128;
 	private Context context;
+	private RippleDrawable ripple;
 	private Paint backgroundBrush;
 	private Bitmap bmpSelected;
 	private Bitmap bmpUnselected;
 
-	public CompoundImageButton(Context context) { this(context, null); }
-	public CompoundImageButton(Context context, AttributeSet attrs) { this(context, attrs, 0); }
-	public CompoundImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
+	public ImageToggleButton(Context context) { this(context, null); }
+	public ImageToggleButton(Context context, AttributeSet attrs) { this(context, attrs, 0); }
+	public ImageToggleButton(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		this.context = context;
 		
 		backgroundBrush = new Paint();
 		
-		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CompoundImageButton);
+		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ImageToggleButton);
 		
-		Drawable selected = a.getDrawable(R.styleable.CompoundImageButton_drawable_selected);
-		Drawable unselected = a.getDrawable(R.styleable.CompoundImageButton_drawable_unselected);
+		Drawable selected = a.getDrawable(R.styleable.ImageToggleButton_drawable_selected);
+		Drawable unselected = a.getDrawable(R.styleable.ImageToggleButton_drawable_unselected);
 
-		int backgroundColor = a.getColor(R.styleable.CompoundImageButton_background_color, 0);
+		int backgroundColor = a.getColor(R.styleable.ImageToggleButton_background_color, 0);
 		backgroundBrush.setStyle(Paint.Style.FILL);
+		backgroundBrush.setAlpha(ALPHA);
 		backgroundBrush.setColor(backgroundColor);
 		
 		if (unselected != null) {
@@ -49,10 +53,9 @@ public class CompoundImageButton extends CompoundButton {
 		}
 		setWillNotDraw(false);
 		
-		int rippleColor = a.getColor(R.styleable.CompoundImageButton_ripple_color, 0);
-		RippleDrawable ripple = (RippleDrawable)this.getBackground();
-		ColorDrawable rippleBackground = (ColorDrawable) ripple.getDrawable(0);
-		rippleBackground.setColor(backgroundColor);
+		int rippleColor = a.getColor(R.styleable.ImageToggleButton_ripple_color, 0);
+		ripple = (RippleDrawable)this.getBackground();
+		((ColorDrawable) ripple.getDrawable(0)).setColor(backgroundColor);
 		ripple.setColor(ColorStateList.valueOf(rippleColor));
 		
 		this.setClickable(true);
@@ -75,9 +78,9 @@ public class CompoundImageButton extends CompoundButton {
 	public boolean onTouchEvent(MotionEvent event) {
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			if (isChecked()) {
-				backgroundBrush.setColor(context.getResources().getColor(R.color.theme_primary));
+				//backgroundBrush.setColor(context.getResources().getColor(R.color.theme_primary));
 			} else {
-				backgroundBrush.setColor(context.getResources().getColor(R.color.theme_primary_light));
+				//backgroundBrush.setColor(context.getResources().getColor(R.color.theme_primary_light));
 			}
 		}
 		this.performClick();
