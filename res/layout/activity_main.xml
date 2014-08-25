@@ -1,21 +1,48 @@
-<RelativeLayout 
+<LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res/com.kformeck.oddevenparking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kformeck.oddevenparking.MainActivity">
+    android:orientation="vertical">
     
+    <LinearLayout
+        android:id="@+id/topSheet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_sheet_height_main"
+        android:orientation="vertical"
+        android:background="@color/theme_primary">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/reminder_text_pre"
+            android:textColor="@color/theme_accent"
+            android:textSize="@dimen/font_size_title"/>
+        <TextView
+            android:id="@+id/txtReminderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/reminder_text_default"
+            android:textColor="@color/theme_accent"
+            android:textSize="@dimen/font_size_title"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/reminder_text_post"
+            android:textColor="@color/theme_accent"
+            android:textSize="@dimen/font_size_title"/>
+    </LinearLayout>
     <com.kformeck.widgets.FloatingActionButton
         android:id="@+id/btnAddTrigger"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="@dimen/fab_margin_bottom"
-        android:layout_marginRight="@dimen/fab_margin_right"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="@dimen/fab_margin_side"
+        android:layout_marginTop="@dimen/fab_margin_top"
         android:elevation="5dp"
         app:drawable="@drawable/ic_new_trigger"
         app:color="@color/theme_accent" />
 
-</RelativeLayout>
+</LinearLayout>

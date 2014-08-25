@@ -7,6 +7,10 @@
     <string name="title">Title</string>
     <string name="action_settings">Settings</string>
     
+    <string name="reminder_text_pre">Park on the</string>
+    <string name="reminder_text_default">Other side</string>
+    <string name="reminder_text_post">of the road</string>
+    
     <string name="radiobutton_location">Location</string>
 	<string name="radiobutton_time">Time</string>
     
