@@ -15,7 +15,7 @@
         android:theme="@style/MainTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/triggers"
+            android:label=" "
             android:theme="@style/MainTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

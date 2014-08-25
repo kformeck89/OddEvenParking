@@ -1,14 +1,14 @@
-<LinearLayout 
+<RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.kformeck.oddevenparking"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
     
     <LinearLayout
         android:id="@+id/topSheet"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_sheet_height_main"
+        android:layout_alignParentTop="true"
         android:orientation="vertical"
         android:background="@color/theme_primary">
         <TextView 
@@ -17,7 +17,7 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/reminder_text_pre"
             android:textColor="@color/theme_accent"
-            android:textSize="@dimen/font_size_title"/>
+            android:textSize="@dimen/font_size_display_1"/>
         <TextView
             android:id="@+id/txtReminderText"
             android:layout_width="wrap_content"
@@ -25,14 +25,14 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/reminder_text_default"
             android:textColor="@color/theme_accent"
-            android:textSize="@dimen/font_size_title"/>
+            android:textSize="@dimen/font_size_display_2"/>
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/reminder_text_post"
             android:textColor="@color/theme_accent"
-            android:textSize="@dimen/font_size_title"/>
+            android:textSize="@dimen/font_size_display_1"/>
     </LinearLayout>
     <com.kformeck.widgets.FloatingActionButton
         android:id="@+id/btnAddTrigger"
@@ -44,5 +44,23 @@
         android:elevation="5dp"
         app:drawable="@drawable/ic_new_trigger"
         app:color="@color/theme_accent" />
+    <com.kformeck.widgets.FloatingActionButton
+        android:id="@+id/btnLocation"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_gravity="bottom|center"
+        android:elevation="5dp"
+        android:visibility="visible"
+        app:drawable="@drawable/ic_location"
+        app:color="@color/theme_accent" />
+    <com.kformeck.widgets.FloatingActionButton
+        android:id="@+id/btnTime"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_gravity="bottom|center"
+        android:elevation="5dp"
+        android:visibility="invisible"
+        app:drawable="@drawable/ic_clock"
+        app:color="@color/theme_accent" />
 
-</LinearLayout>
+</RelativeLayout>
