@@ -1,6 +1,7 @@
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.kformeck.oddevenparking"
+    android:id="@+id/layoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     
@@ -43,24 +44,6 @@
         android:layout_marginTop="@dimen/fab_margin_top"
         android:elevation="5dp"
         app:drawable="@drawable/ic_new_trigger"
-        app:color="@color/theme_accent" />
-    <com.kformeck.widgets.FloatingActionButton
-        android:id="@+id/btnLocation"
-        android:layout_width="@dimen/fab_size"
-        android:layout_height="@dimen/fab_size"
-        android:layout_gravity="bottom|center"
-        android:elevation="5dp"
-        android:visibility="visible"
-        app:drawable="@drawable/ic_location"
-        app:color="@color/theme_accent" />
-    <com.kformeck.widgets.FloatingActionButton
-        android:id="@+id/btnTime"
-        android:layout_width="@dimen/fab_size"
-        android:layout_height="@dimen/fab_size"
-        android:layout_gravity="bottom|center"
-        android:elevation="5dp"
-        android:visibility="invisible"
-        app:drawable="@drawable/ic_clock"
         app:color="@color/theme_accent" />
 
 </RelativeLayout>

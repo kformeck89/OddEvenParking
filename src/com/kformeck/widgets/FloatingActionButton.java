@@ -3,6 +3,7 @@ package com.kformeck.widgets;
 import com.kformeck.oddevenparking.R;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
+@SuppressLint("ClickableViewAccessibility")
 public class FloatingActionButton extends View {
 	private final Paint buttonPaint;
 	private final Paint drawablePaint;
