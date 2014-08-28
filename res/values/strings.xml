@@ -17,4 +17,9 @@
 	<string name="location_button_desc">Location</string>
 	<string name="time_button_desc">Time</string>
 	
+	<string name="extra_trigger_type">com.kformeck.oddevenparking.extras.trigger_type</string>
+	
+	<string name="trigger_type_location">com.kformeck.oddevenparking.triggers.location</string>
+	<string name="trigger_type_time">com.kformeck.oddevenparking.triggers.time</string>
+	
 </resources>

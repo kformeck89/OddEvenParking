@@ -113,22 +113,23 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f06000f;
+        public static final int activity_horizontal_margin=0x7f060010;
+        public static final int fab_elevation=0x7f060004;
         public static final int fab_margin_side=0x7f060002;
         public static final int fab_margin_top=0x7f060003;
-        public static final int fab_size=0x7f060004;
-        public static final int font_size_body=0x7f060008;
-        public static final int font_size_display_1=0x7f06000c;
-        public static final int font_size_display_2=0x7f06000d;
-        public static final int font_size_headline=0x7f06000b;
-        public static final int font_size_subheader=0x7f060009;
-        public static final int font_size_title=0x7f06000a;
-        public static final int horizontal_content_margin=0x7f060006;
-        public static final int horizontal_content_margin_edittext=0x7f060007;
+        public static final int fab_size=0x7f060005;
+        public static final int font_size_body=0x7f060009;
+        public static final int font_size_display_1=0x7f06000d;
+        public static final int font_size_display_2=0x7f06000e;
+        public static final int font_size_headline=0x7f06000c;
+        public static final int font_size_subheader=0x7f06000a;
+        public static final int font_size_title=0x7f06000b;
+        public static final int horizontal_content_margin=0x7f060007;
+        public static final int horizontal_content_margin_edittext=0x7f060008;
         public static final int item_text_left_margin=0x7f060001;
-        public static final int standard_content_margin=0x7f060005;
+        public static final int standard_content_margin=0x7f060006;
         public static final int top_sheet_height_main=0x7f060000;
-        public static final int trigger_type_button_size=0x7f06000e;
+        public static final int trigger_type_button_size=0x7f06000f;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
@@ -138,16 +139,19 @@ containing a value of this type.
         public static final int ripple_primary=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0004;
-        public static final int btnAddTrigger=0x7f0a0003;
-        public static final int layoutMain=0x7f0a0000;
-        public static final int topSheet=0x7f0a0001;
-        public static final int txtReminderText=0x7f0a0002;
+        public static final int action_settings=0x7f0a0006;
+        public static final int btnAddTrigger=0x7f0a0002;
+        public static final int content=0x7f0a0005;
+        public static final int topSheet=0x7f0a0000;
+        public static final int triggerFabContainer=0x7f0a0003;
+        public static final int txtReminderText=0x7f0a0001;
+        public static final int txtTriggerTitle=0x7f0a0004;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int fragment_location_selection=0x7f030001;
-        public static final int fragment_time_selection=0x7f030002;
+        public static final int activity_new_trigger=0x7f030001;
+        public static final int fragment_location_selection=0x7f030002;
+        public static final int fragment_time_selection=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -155,6 +159,7 @@ containing a value of this type.
     public static final class string {
         public static final int action_settings=0x7f070004;
         public static final int app_name=0x7f070000;
+        public static final int extra_trigger_type=0x7f07000c;
         public static final int hint_new_trigger=0x7f070001;
         public static final int location_button_desc=0x7f07000a;
         public static final int radiobutton_location=0x7f070008;
@@ -164,6 +169,8 @@ containing a value of this type.
         public static final int reminder_text_pre=0x7f070005;
         public static final int time_button_desc=0x7f07000b;
         public static final int title=0x7f070003;
+        public static final int trigger_type_location=0x7f07000d;
+        public static final int trigger_type_time=0x7f07000e;
         public static final int triggers=0x7f070002;
     }
     public static final class style {

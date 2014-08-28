@@ -4,21 +4,25 @@ import com.kformeck.widgets.FloatingActionButton;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Slide;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
-	private static final int MAIN_FAB_ANIMATION_TIME = 500;
-	private static final int LOCATION_FAB_ANIMATION_TIME = 500;
-	private static final int TIME_FAB_ANIMATION_TIME = 500;
+	private static final int MAIN_FAB_ANIMATION_TIME = 250;
+	private static final int LOCATION_FAB_ANIMATION_TIME = 250;
+	private static final int TIME_FAB_ANIMATION_TIME = 250;
 	
 	private Context context;
 	private FloatingActionButton btnAddTrigger;
@@ -35,27 +39,40 @@ public class MainActivity extends Activity {
 	private ScaleAnimation timeFabShrinkAnimation;
 	private int windowHeight;
 	private int windowWidth;
+	
+	private View.OnClickListener triggerFabClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			Intent intent = new Intent(context, NewTriggerActivity.class);
+			if (view.getId() == btnLocation.getId()) {
+				intent.putExtra(
+						context.getResources().getString(R.string.extra_trigger_type),
+						context.getResources().getString(R.string.trigger_type_location));
+			} else if (view.getId() == btnTime.getId()) {
+				intent.putExtra(
+						context.getResources().getString(R.string.extra_trigger_type),
+						context.getResources().getString(R.string.trigger_type_time));
+			}
+			startActivity(intent);
+		}
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+		getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+		getWindow().setEnterTransition(new Slide());
+		getWindow().setExitTransition(new Explode());
+		
 		setContentView(R.layout.activity_main);
 		context = this;
 		
 		windowHeight = getBaseContext().getResources().getDisplayMetrics().heightPixels;
 		windowWidth = getBaseContext().getResources().getDisplayMetrics().widthPixels;
-		
-		setupLocationFab();
-		setupTimeFab();
+	
 		setupMainFab();
-		
-		btnAddTrigger = (FloatingActionButton) findViewById(R.id.btnAddTrigger);
-		btnAddTrigger.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				view.startAnimation(mainFabAnimationSet);
-			}
-		});
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,13 +89,12 @@ public class MainActivity extends Activity {
 	}
 	
 	private void setupLocationFab() {		
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 				(int) context.getResources().getDimension(R.dimen.fab_size),
 				(int) context.getResources().getDimension(R.dimen.fab_size));
-		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		params.weight = 0;
 		
-		locationFabTranslateAnimation = new TranslateAnimation(0, 150, 0, 0);
+		locationFabTranslateAnimation = new TranslateAnimation(250, 0, 0, 0);
 		locationFabTranslateAnimation.setDuration(LOCATION_FAB_ANIMATION_TIME);
 		locationFabTranslateAnimation.setFillAfter(true);
 		
@@ -96,23 +112,18 @@ public class MainActivity extends Activity {
 		btnLocation.setLayoutParams(params);
 		btnLocation.setDrawable(context.getResources().getDrawable(R.drawable.ic_location));
 		btnLocation.setColor(context.getResources().getColor(R.color.theme_accent));
-		btnLocation.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				
-			}
-		});
+		btnLocation.setElevation(getResources().getDimension(R.dimen.fab_elevation));
+		btnLocation.setOnClickListener(triggerFabClickListener);
 	}
 	private void setupTimeFab() {
-		final RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.layoutMain);
+		final LinearLayout container = (LinearLayout)findViewById(R.id.triggerFabContainer);
 		
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 				(int) context.getResources().getDimension(R.dimen.fab_size),
 				(int) context.getResources().getDimension(R.dimen.fab_size));
-		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		params.weight = 0;
 		
-		timeFabTranslateAnimation = new TranslateAnimation(0, -150, 0, 0);
+		timeFabTranslateAnimation = new TranslateAnimation(-250, 0, 0, 0);
 		timeFabTranslateAnimation.setDuration(TIME_FAB_ANIMATION_TIME);
 		timeFabTranslateAnimation.setFillAfter(true);
 		
@@ -131,8 +142,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onAnimationRepeat(Animation animation) { }
 			@Override
-			public void onAnimationStart(Animation animation) { 
-				mainLayout.addView(btnLocation);
+			public void onAnimationStart(Animation animation) {
+				setupLocationFab();
+				container.addView(btnLocation);
 				btnLocation.startAnimation(locationFabAnimationSet);
 			}
 		});
@@ -141,24 +153,14 @@ public class MainActivity extends Activity {
 		btnTime.setLayoutParams(params);
 		btnTime.setDrawable(context.getResources().getDrawable(R.drawable.ic_time));
 		btnTime.setColor(context.getResources().getColor(R.color.theme_accent));
-		btnTime.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				
-			}
-		});
+		btnTime.setElevation(getResources().getDimension(R.dimen.fab_elevation));
+		btnTime.setOnClickListener(triggerFabClickListener);
 	}
 	private void setupMainFab() {
-		final RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.layoutMain);
+		final LinearLayout container = (LinearLayout)findViewById(R.id.triggerFabContainer);
 		
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-				(int) context.getResources().getDimension(R.dimen.fab_size),
-				(int) context.getResources().getDimension(R.dimen.fab_size));
-		params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-		
-		int resourceId = context.getResources()
-				.getIdentifier("navigation_bar_height", "dimen", "android");
+		int resourceId = context.getResources().
+				getIdentifier("navigation_bar_height", "dimen", "android");
 		float fabSize = context.getResources().getDimension(R.dimen.fab_size);
 		float navbarHeight = resourceId > 0 ?
 				context.getResources().getDimensionPixelSize(resourceId) : 0;
@@ -184,7 +186,8 @@ public class MainActivity extends Activity {
 		mainFabAnimationSet.setAnimationListener(new AnimationListener() {
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				mainLayout.addView(btnTime);
+				setupTimeFab();
+				container.addView(btnTime);
 				btnTime.startAnimation(timeFabAnimationSet);
 			}
 			@Override
@@ -192,6 +195,14 @@ public class MainActivity extends Activity {
 			@Override
 			public void onAnimationStart(Animation animation) { }
 			
+		});
+	
+		btnAddTrigger = (FloatingActionButton) findViewById(R.id.btnAddTrigger);
+		btnAddTrigger.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				view.startAnimation(mainFabAnimationSet);
+			}
 		});
 	}
 }
