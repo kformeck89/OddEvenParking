@@ -5,6 +5,7 @@
 	
 	<dimen name="fab_margin_side">16dp</dimen>
 	<dimen name="fab_margin_top">141dp</dimen>
+	<dimen name="fab_elevation">5dp</dimen>
 	<dimen name="fab_size">72dp</dimen>
 	
 	<dimen name="standard_content_margin">8dp</dimen>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme_primary">#ff3f51b5</color>
-    <color name="theme_primary_light">#ff9fa8da</color>
-    <color name="theme_primary_dark">#ff303f9f</color>
-    <color name="theme_accent">#ffe51c23</color>
-    <color name="theme_accent_light">#fff69988</color>
+    <color name="theme_primary">#00bcd4</color>
+    <color name="theme_primary_light">#b2ebf2</color>
+    <color name="theme_primary_dark">#00838f</color>
+    <color name="theme_accent">#ff6e40</color>
+    <color name="theme_accent_light">#ff9e80</color>
     
     <color name="font_color_light">#ffffffff</color>
 </resources>
