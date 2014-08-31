@@ -23,7 +23,7 @@ public class NewTriggerActivity extends Activity {
 		timeFragment = new TimeSelectionFragment();
 		
 		if (triggerType != null) {
-			if (triggerType == getResources().getString(R.string.trigger_type_location)) {
+			if (triggerType.equals(getResources().getString(R.string.trigger_type_location))) {
 				if (fragmentManager.findFragmentById(android.R.id.content) == null) {
 					fragmentManager.beginTransaction()
 								   .add(android.R.id.content, locationFragment)
@@ -33,7 +33,7 @@ public class NewTriggerActivity extends Activity {
 								   .replace(android.R.id.content, locationFragment)
 								   .commit();
 				}
-			} else if (triggerType == getResources().getString(R.string.trigger_type_time)) {
+			} else if (triggerType.equals(getResources().getString(R.string.trigger_type_time))) {
 				if (fragmentManager.findFragmentById(android.R.id.content) == null) {
 					fragmentManager.beginTransaction()
 								   .add(android.R.id.content, timeFragment)

@@ -33,11 +33,11 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View view) {
 			Intent intent = new Intent(context, NewTriggerActivity.class);
-			if (view.getId() == btnLocation.getId()) {
+			if (view == btnLocation) {
 				intent.putExtra(
 						context.getResources().getString(R.string.extra_trigger_type),
 						context.getResources().getString(R.string.trigger_type_location));
-			} else if (view.getId() == btnTime.getId()) {
+			} else if (view == btnTime) {
 				intent.putExtra(
 						context.getResources().getString(R.string.extra_trigger_type),
 						context.getResources().getString(R.string.trigger_type_time));
