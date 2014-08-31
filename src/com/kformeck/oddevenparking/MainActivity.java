@@ -2,8 +2,6 @@ package com.kformeck.oddevenparking;
 
 import com.kformeck.widgets.FloatingActionButton;
 
-import android.animation.Animator;
-import android.animation.Animator.AnimatorListener;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,10 +16,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity {
-	private static final int MAIN_FAB_ANIMATION_TIME = 250;
-	private static final int LOCATION_FAB_ANIMATION_TIME = 250;
-	private static final int TIME_FAB_ANIMATION_TIME = 250;
-	
 	private Context context;
 	private FloatingActionButton btnAddTrigger;
 	private FloatingActionButton btnLocation;
