@@ -140,11 +140,11 @@ containing a value of this type.
     }
     public static final class id {
         public static final int action_settings=0x7f0a0006;
-        public static final int btnAddTrigger=0x7f0a0002;
+        public static final int btnAddTrigger=0x7f0a0003;
         public static final int content=0x7f0a0005;
-        public static final int topSheet=0x7f0a0000;
-        public static final int triggerFabContainer=0x7f0a0003;
-        public static final int txtReminderText=0x7f0a0001;
+        public static final int mainLayout=0x7f0a0000;
+        public static final int topSheet=0x7f0a0001;
+        public static final int txtReminderText=0x7f0a0002;
         public static final int txtTriggerTitle=0x7f0a0004;
     }
     public static final class layout {
